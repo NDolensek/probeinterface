@@ -243,6 +243,12 @@ def test_readspikeglx():
     assert probe.get_contact_count()== 151
     assert 152 not in probe.contact_annotations['channel_ids']
 
+    # example by Nate Dolensek NP1.0-NHP 45mm SOI90
+    probe = read_spikeglx(folder / 'NHP_1030_g0_t0.imec0.ap.meta')
+    print(probe)
+    assert probe.get_shank_count()== 1
+    assert 'NHP' in probe.annotations['name']
+
     # from probeinterface.plotting import plot_probe
     # import matplotlib.pyplot as plt
     # plot_probe(probe)
